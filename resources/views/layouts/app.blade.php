@@ -41,10 +41,10 @@
                     <ul class="navbar-nav mr-auto">
 
                 <!--  profile pic links-->
-                        {{--/{{ Auth::user()->slug}}--}}
+                        {{--/{{ Auth::user()->name}}--}}
                 <li>
                     @auth
-                        <a href="{{ url('/profile') }}/{{ Auth::user()->slug}}">Profile</a>
+                        <a href="{{ url('/profile') }}/{{ Auth::user()->name}}">Profile</a>
                   {{--<a href="{{url('/profile')}}">Profile</a>--}}
 
                     @endauth
