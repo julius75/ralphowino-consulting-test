@@ -17,4 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/profile', 'ProfileController@index');
+
+// assign many middleware to a route at once:
+Route::group(['middleware' => 'auth'], function () {
+    //these pages are only for loged in users
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/profile/{slug}', 'ProfileController@index');
+
+});
+
+
+  Route::get('/logout', 'LoginController@logout');
