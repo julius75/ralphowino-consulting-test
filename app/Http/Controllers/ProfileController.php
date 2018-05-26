@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -11,10 +12,12 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
+    public function index($name)  //receive slug
+
     {
+
         //return
-        return view('profile.details');
+        return view('profile.details',compact('name'));  //pass the variable the profile
     }
 
     /**
