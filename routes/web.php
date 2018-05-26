@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     //these pages are only for loged in users
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/profile/{slug}', 'ProfileController@index');
+    Route::get('/profile/{name}', 'ProfileController@index');
 
 });
 
