@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','slug',
+        'name', 'email', 'password','gender',
     ];
 
     /**
@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function userAndprofileRelation(){
+
+        //this model has on user
+        return $this->hasOne('App/Profile');
+    }
 }
