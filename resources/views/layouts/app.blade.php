@@ -19,16 +19,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Social Network') }}
                 </a>
+                {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
+                    {{--<span class="navbar-toggler-icon"></span>--}}
+                {{--</button>--}}
+
+                {{--<div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
+                    {{--<!-- Left Side Of Navbar -->--}}
+                    {{--<ul class="navbar-nav mr-auto">--}}
+
+                    {{--</ul>--}}
 
 
 
@@ -40,16 +47,18 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                <!--  profile pic links-->
+                        <!--  profile pic links-->
                         {{--/{{ Auth::user()->name}}--}}
-                <li>
-                    @auth
-                        <a href="{{ url('/profile') }}/{{ Auth::user()->name}}">Profile</a>
-                  {{--<a href="{{url('/profile')}}">Profile</a>--}}
+                        <li>
+                            @auth
+                                <a href="{{ url('/profile') }}/{{ Auth::user()->slug}}">Profile</a>
+                                {{--<a href="{{url('/profile')}}">Profile</a>--}}
 
-                    @endauth
+                                {{--<a href="{{ url('/logout') }}/{{ Auth::user()->slug}}">Logout</a>--}}
 
-                </li>
+                            @endauth
+
+                        </li>
 
                     </ul>
 
@@ -60,9 +69,15 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+
+                                <a href="">
+                                <img src="{{ url('images/boy.png') }}" width="35px" height="35px"  style="border-radius: 50%" class="img-circle" >
+                                </a>
+                                </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ ucwords(Auth::user()->name) }} <span class="caret"></span>
+                                    {{ ucwords(Auth::user()->slug) }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

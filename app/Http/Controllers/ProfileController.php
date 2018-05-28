@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
 class ProfileController extends Controller
 {
@@ -12,12 +11,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name)  //receive slug
-
+    public function index($slug)
     {
-
-        //return
-        return view('profile.details',compact('name'));  //pass the variable the profile
+        //
+        return view('profile.detail');
     }
 
     /**
@@ -83,6 +80,14 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
+        //
+    }
+
+    //picture edit
+    public function editPic(Request $request){
+
+        dd($request->all());
+
         //
     }
 }

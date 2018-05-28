@@ -7,14 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $fillable = [
-        'about',
+        'about','user_id',
     ];
 
     //relationship btn profile and user
 
- public function profileAndUserRelation(){
 
-     //this model has on user
-     return $this->belongsTo('App/User');
- }
+
+    public function profile(){
+
+        //user has one profile
+        return $this->hasOne('App\Profile');
+    }
 }
