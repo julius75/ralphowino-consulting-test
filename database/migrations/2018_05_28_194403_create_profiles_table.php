@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFriendShipsTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateFriendShipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('friend_ships', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('requesting'); //sender of reques
-            $table->integer('user_requested'); //receiver of reques
-            $table->boolean('confirm')->default(0);
+            $table->integer('user_id');
+            $table->string('about')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateFriendShipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('friend_ships');
+        Schema::dropIfExists('profiles');
     }
 }

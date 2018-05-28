@@ -17,18 +17,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/profile', 'ProfileController@index');
 
 // assign many middleware to a route at once:
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['web', 'auth']], function () {
+
     //these pages are only for loged in users
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/profile/{name}', 'ProfileController@index');
+    Route::get('/profile/{slug}', 'ProfileController@index');
+
+    //user photo page
+    Route::get('/changePhoto', function () {
+        return view('profile.edit');
+    });
+
+//picture update route
+    Route::post('/editPic', 'ProfileController@editPic');
+
 
 });
 
-
-  Route::get('/logout', 'LoginController@logout');
+Route::get('/logout', 'LoginController@logout')->middleware('auth');
+//
