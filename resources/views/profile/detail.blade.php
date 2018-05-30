@@ -9,6 +9,7 @@
                 <div class="card">
                     <div class="card-header">Sidebar - Quick Links</div>
                 </div>
+
             </div>
 
 
@@ -41,6 +42,23 @@
                     </div>
 
                 </div>
+
+
+
+                {{--for Vue Component--}}
+                <div class="card">
+                    <div class="card-body">
+
+                        <friend :user_id="{{Auth::user()->id}}">
+                            </friend>
+                        {{--<friend :="profile_id">--}}
+                        {{--</friend>--}}
+
+                </div>
+                </div>
+
+
+
             </div>
 
 
@@ -48,24 +66,6 @@
         </div>
     </div>
 
-    {{--<div class="container">--}}
-    {{--<div class="row">--}}
-    {{--<div class="col-md-9">--}}
-    {{--<div class="panel panel-default">--}}
-    {{--<div class="panel-heading"> {{ Auth::user()->name}}</div>--}}
 
-    {{--<div class="panel-body">--}}
-
-    {{--<div class="col-sm-6 col-md-4">--}}
-    {{--<img src="{{Storage::url('public/images/avator/man.jpg')}} >--}}
-    {{--<img src="{{ url('images/boy.png') }}" width="85px" height="85px"  style="border-radius: 50%" >--}}
-
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
 
 @endsection

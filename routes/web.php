@@ -14,8 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/check/{id}', function ($id) {
+    return \App\User::find($id);
+});
 
 Auth::routes();
+
+//Route::get('/check_relationship_status/{id}', 'FriendshipController@check');
+
+
+//Route::get('/check/{id}', function ($id) {
+//    return App\User::find($id);
+//});
+
+//Route::get('/', function () {
+//    $user->befriend($recipient);
+//});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -37,7 +52,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('/editPic', 'ProfileController@editPic');
 
 
+//    Route::get('check/{id}', 'FriendsController@check');
+
 });
 
 Route::get('/logout', 'LoginController@logout')->middleware('auth');
 //
+////try friendship
+//Route::get('/hello', function () {
+//    return Auth::user()->hello();
+//});

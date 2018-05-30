@@ -17,6 +17,6 @@ class Profile extends Model
     public function profile(){
 
         //user has one profile
-        return $this->hasOne('App\Profile');
+        return $this->hasOne('App\User');
     }
 }

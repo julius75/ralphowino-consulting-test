@@ -1,21 +1,17 @@
 <?php
-
 namespace App;
 
 use Hootlex\Friendships\Traits\Friendable;
 use Illuminate\Notifications\Notifiable;
-use App\Profile;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
-use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-//    use Friendable;
-//    use Messagable;
+use Notifiable;
+use Friendable;
 
-    /**
+
+/**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -37,6 +33,6 @@ class User extends Authenticatable
     public function user(){
 
         //profile belong to one user only
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Profile');
     }
 }
